@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2018 at 11:59 AM
+-- Generation Time: Jan 11, 2019 at 05:23 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -45,6 +45,7 @@ CREATE TABLE `del` (
   `c22` varchar(200) NOT NULL,
   `c23` varchar(200) NOT NULL,
   `Accomodation` varchar(100) NOT NULL,
+  `food` varchar(10) NOT NULL,
   `sc_name` varchar(200) NOT NULL,
   `sc_email` varchar(200) NOT NULL,
   `sc_phone` varchar(15) NOT NULL

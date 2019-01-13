@@ -221,6 +221,7 @@ header("Location:page4.php");
  if(isset($_POST['button_4'])){
 
  	$accomodation = $_POST["checkbox"];
+  $food = $_POST["food"];
 
 //echo "jww";
 	$name = $_SESSION['name'];
@@ -249,7 +250,7 @@ $a_phone = $_SESSION['arab_phone'];
 
 
 
-   	$sql = "INSERT INTO del VALUES('".addslashes($name)."','".addslashes($gender)."','".addslashes($dob)."','".addslashes($city)."','".addslashes($college)."','".addslashes($mobile)."','".addslashes($email)."','".addslashes($db)."','".addslashes($eb)."','".addslashes($comm1)."','".addslashes($p11)."','".addslashes($p12)."','".addslashes($p13)."','".addslashes($comm2)."','".addslashes($p21)."','".addslashes($p22)."','".addslashes($p23)."','".addslashes($accomodation)."','".addslashes($a_name)."','".addslashes($a_email)."','".addslashes($a_phone)."')";
+   	$sql = "INSERT INTO del VALUES('".addslashes($name)."','".addslashes($gender)."','".addslashes($dob)."','".addslashes($city)."','".addslashes($college)."','".addslashes($mobile)."','".addslashes($email)."','".addslashes($db)."','".addslashes($eb)."','".addslashes($comm1)."','".addslashes($p11)."','".addslashes($p12)."','".addslashes($p13)."','".addslashes($comm2)."','".addslashes($p21)."','".addslashes($p22)."','".addslashes($p23)."','".addslashes($accomodation)."','".addslashes($food)."','".addslashes($a_name)."','".addslashes($a_email)."','".addslashes($a_phone)."')";
 
     //echo "<script>alert('dsad');</script>";
 

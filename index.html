@@ -325,7 +325,6 @@ a,i,p,body{
 <!-- Icon Bar (Sidebar - hidden on small screens) -->
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
   <!-- Avatar image in top left corner -->
-
   <img src="images/logovit.png" style="width:100%">
   <ul>
     <li data-menuanchor="#main">
@@ -340,16 +339,22 @@ a,i,p,body{
     <p>COUNCILS</p>
   </a>
 </li>
-<!--li data-menuanchor="#exec">
+<li data-menuanchor="#exec">
   <a href="#exec" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
     <i class="fa fa-eye w3-xlarge"></i>
     <p>DELEGATE</p>
   </a>
-</li-->
-<li>
+</li>
+<li data-menuanchor="#secretariat">
   <a href="#secretariat" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
     <i class="fa fa-black-tie w3-xlarge"></i>
     <p>SECRETARIAT</p>
+  </a>
+</li>
+<li data-menuanchor="#cont">
+  <a href="#cont" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
+    <i class="fa fa-phone w3-xlarge"></i>
+    <p>CONTACT</p>
   </a>
 </li>
 <!--li>
@@ -374,11 +379,13 @@ a,i,p,body{
       <li>
     <a href="#main" class="w3-bar-item w3-button" style="width:15% !important;text-decoration:none">Home</a></li>
     <li>
-    <a href="#councils" class="w3-bar-item w3-button" style="width:17% !important;text-decoration:none">Councils</a></li>
-    <!--li>
-    <a href="#exec" class="w3-bar-item w3-button" style="width:20% !important;text-decoration:none">Delegate</a></li-->
+    <a href="#councils" class="w3-bar-item w3-button" style="width:20% !important;text-decoration:none">Councils</a></li>
     <li>
-    <a href="#secretariat" class="w3-bar-item w3-button" style="width:25% !important;text-decoration:none">Secretariat</a></li>
+    <a href="#exec" class="w3-bar-item w3-button" style="width:20% !important;text-decoration:none">Delegate</a></li>
+    <li>
+    <a href="#secretariat" class="w3-bar-item w3-button" style="width:24% !important;text-decoration:none">Secretariat</a></li>
+    <li>
+    <a href="#cont" class="w3-bar-item w3-button" style="width:19% !important;text-decoration:none">Contact</a></li>
     <!--li>
     <a href="http://www.vitcmun.in/sponsors/" class="w3-bar-item w3-button" style="width:23% !important;text-decoration:none">Sponsors</a></li-->
     </ul>
@@ -627,8 +634,8 @@ function showDivs1(n) {
 </div>
 <div class="w3-col l4 m4">
 <!--Executive Board Application ka link idhar hai-->
-  <!--button onclick="location.href='./survey/index.php'" class="w3-btn w3-round-xlarge w3-border w3-padding-large  w3-hover-white" style="margin-top:10px;font-size:20px; text-decoration:none">Agenda Survey Poll
-  </button-->
+  <button onclick="location.href='./applications/index.html'" class="w3-btn w3-round-xlarge w3-border w3-padding-large  w3-hover-white" style="margin-top:10px;font-size:20px; text-decoration:none">Delegate Applications
+  </button>
 <!---->
 </div>
 
@@ -851,16 +858,13 @@ a:active .line.-bottom {
 </div>-->
     </div>
     <div class="w3-container w3-center w3-black w3-hide-medium w3-hide-large" style="margin-bottom:100px">
-        <!--p style="line-height:30px; font-size:25px">
+        <p style="line-height:30px; font-size:25px">
             Applications for VITCMUN '19'
         </p>
-        <p style="line-height:30px; font-size:25px">
-            Coming Soon
-        </p-->
         <div class="w3-row w3-center">
-          <!--div class="margin-top w3-col l3 m3">
-          <a href="./survey/index.php" class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="margin-top:10px;font-size:16px; text-decoration:none">Agenda Survey Poll</a>
-        </div-->
+          <div class="margin-top w3-col l3 m3">
+          <a href="./applications/index.html" class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="margin-top:10px;font-size:16px; text-decoration:none">Delegate Applications</a>
+        </div>
 <!--Eb Applications for Mobiles idhar hai-->
             <!--div class="margin-top w3-col l3 m3">
             <a href="./ebapplication/index.html" class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="margin-top:10px;font-size:16px; text-decoration:none">Executive Board Applications</a>

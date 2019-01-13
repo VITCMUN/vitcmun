@@ -42,6 +42,16 @@ header("Location:page3_2.php");
                 </label>
             </div>
 
+						<div class="form-row">
+                <label>
+                    <span>Food Preference:</span>
+                    <select name="food" id="food" required>
+                        <option value="veg">Vegetarian</option>
+                        <option value="nonveg">Non-Vegetarian</option>
+                    </select>
+                </label>
+            </div>
+
             <div class="form-row">
                 <button type="5sub" style="display: block; margin: 0 auto;" name="button_4">Finish</button>
             </div>
