@@ -5,7 +5,7 @@ header("Location:page3_1.php");
 }
 
 //include 'session_home.php';
-//$error = $_GET['error'];
+$error = $_GET['error'];
 
 $server = "localhost";
     $username = "root";
@@ -375,11 +375,14 @@ $server = "localhost";
   <footer>
 		<h3><center><font color="white">VITCMUN - Tech Team</font></center></h3>
     </footer>
-    <!--?php
+    <?php
     //echo("<script>window.alert('$error');</script>");
 	if($error==1){
 		echo("<script>window.alert('Any 2 entries can not be the same');</script>");
 	}
-	?-->
+  if($error==2){
+    echo("<script>window.alert('Please select a different Council');</script>");
+  }
+	?>
 </body>
 </html>

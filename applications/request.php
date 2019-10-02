@@ -22,11 +22,14 @@ if(isset($_POST['button_1']))
 }
 if(isset($_POST['button_2']))
 {
+    $_SESSION['dn']=$_POST['dmun'];
 	$_SESSION["dexp"]=$_POST["Delegate-experience"];
+    $_SESSION['en']=$_POST['enum'];
 	$_SESSION["ebexp"]=$_POST["eb-experience"];
 	//header("Location:page3_1.php");
 	$delexp = $_SESSION["dexp"];
 	$ebexp = $_SESSION["ebexp"];
+
 
 	$dis = substr_count(strtoupper($delexp),"DISEC")+substr_count(strtoupper($delexp),"UNGA DISEC")+substr_count(strtoupper($delexp),"ODC")+substr_count(strtoupper($delexp),"OFFICE FOR DRUG CONTROL")+substr_count(strtoupper($delexp),"UNGA ESS")+substr_count(strtoupper($delexp),"EMERGENCY SPECIAL SESSION");
 
@@ -46,7 +49,7 @@ if(isset($_POST['button_2']))
 
 	$max_ele = array_keys($array, max($array))[0];
 
-	header("Location:page3_1.php?max_ele=".$max_ele);
+	header('Location:page3_1.php?error=0');
 
 
 
@@ -121,7 +124,7 @@ $_SESSION['arab_phone'] ="Null";
 header("Location:page3_3.php");
 }
 if($comm<5){
-		header("Location:page3_2.php");
+		header("Location:page3_2.php?error=0");
 }
 	}
 }
@@ -193,6 +196,10 @@ if(isset($_POST['button_3_2']))
 	elseif(strcmp($v_p22,$v_p23)==0){
 		header("Location:page3_2.php?error=1");
 	}
+  elseif(strcmp($_SESSION["committee1"],$_SESSION["committee2"])==0){
+		echo($_SESSION["committee1"]);
+		header("Location:page3_2.php?error=2");
+	}
 	else{
 if($comm==5){
 header("Location:page3_3.php");
@@ -233,6 +240,9 @@ header("Location:page4.php");
  	$email = $_SESSION['email'];
  	$db = $_SESSION["dexp"];
 	$eb = $_SESSION["ebexp"];
+    $dmun = $_SESSION['dn'];
+    $emun = $_SESSION['en'];
+
 
 	$comm1 = $_SESSION['committee1'];
 	$p11 = $_SESSION['p11'];
@@ -250,7 +260,7 @@ $a_phone = $_SESSION['arab_phone'];
 
 
 
-   	$sql = "INSERT INTO del VALUES('".addslashes($name)."','".addslashes($gender)."','".addslashes($dob)."','".addslashes($city)."','".addslashes($college)."','".addslashes($mobile)."','".addslashes($email)."','".addslashes($db)."','".addslashes($eb)."','".addslashes($comm1)."','".addslashes($p11)."','".addslashes($p12)."','".addslashes($p13)."','".addslashes($comm2)."','".addslashes($p21)."','".addslashes($p22)."','".addslashes($p23)."','".addslashes($accomodation)."','".addslashes($food)."','".addslashes($a_name)."','".addslashes($a_email)."','".addslashes($a_phone)."')";
+   	$sql = "INSERT INTO del VALUES('".addslashes($name)."','".addslashes($gender)."','".addslashes($dob)."','".addslashes($city)."','".addslashes($college)."','".addslashes($mobile)."','".addslashes($email)."','".addslashes($dmun)."','".addslashes($db)."','".addslashes($emun)."','".addslashes($eb)."','".addslashes($comm1)."','".addslashes($p11)."','".addslashes($p12)."','".addslashes($p13)."','".addslashes($comm2)."','".addslashes($p21)."','".addslashes($p22)."','".addslashes($p23)."','".addslashes($accomodation)."','".addslashes($food)."','".addslashes($a_name)."','".addslashes($a_email)."','".addslashes($a_phone)."')";
 
     //echo "<script>alert('dsad');</script>";
 
@@ -266,7 +276,7 @@ $subject = 'Welcome to the VITCMUN Family';
 //echo $subject;
 //$message = "Dear $name, \r\nYour application has been recieved for the VITCMUN 18.\r\nThe allotments for this round will be released on 21st January.\r\nKeep checking our social media pages for updates. \r\n \r\nYours faithfully, \r\nSiddhant Mukerjee \r\nSecretary General, VITCMUN 18";
 //echo $message;
-$message = "Dear $name,\r\nWe have successfully received your delegate application for VITCMUN 2019; to be held on 29th, 30th and 31st March.The allotments for this round will release on 3rd March 2018. The Organising Committee assures you of a forthcoming memorable MUN experience.\r\n\r\nFor any query call us by going to the contact section in http://www.vitcmun.in or mail us at contact@vitcmun.in.\r\n\r\nYours faithfully,\r\nRohit Joshi\r\nSecretary General, VITCMUN 19";
+$message = "Dear $name,\r\nWe have successfully received your delegate application for VITCMUN 2019; to be held on 29th, 30th and 31st March. The Organising Committee assures you of a forthcoming memorable MUN experience.\r\n\r\nFor any query call us by going to the contact section in http://www.vitcmun.in or mail us at contact@vitcmun.in.\r\n\r\nYours faithfully,\r\nRohit Joshi\r\nSecretary General, VITCMUN 19";
 
 
 $headers = 'From: Secretary General <contact@vitcmun.in>' . PHP_EOL .

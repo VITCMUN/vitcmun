@@ -11,11 +11,33 @@
 <link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.html">
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.html">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="manifest" href="/manifest.json">
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+        OneSignal.init({
+            appId: "ffa75f22-eac9-49c0-a089-4e20d7e9e120",
+        });
+    });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132819915-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-132819915-1');
+</script>
+
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="ms-icon-144x144.html">
 
@@ -33,614 +55,718 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Expires" content="0" />
 <style>
-
-
-
-
-
-
 </style>
 
 
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!--NOTE:: Added smooth scrolling-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--NOTE:: Added smooth scrolling-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
+    $(document).ready(function() {
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
 
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
 
-      // Store hash
-      var hash = this.hash;
+                // Store hash
+                var hash = this.hash;
 
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function() {
 
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-});
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
 </script>
 <script>
-        function test() {
-            var myIFrame = document.getElementById("ora");
-            var links = myIFrame.contentWindow.document.getElementsByTagName("a");
-            for (var index = 0; index < links.length; index++) {
-                links[index].removeAttribute('href');
-            }
+    function test() {
+        var myIFrame = document.getElementById("ora");
+        var links = myIFrame.contentWindow.document.getElementsByTagName("a");
+        for (var index = 0; index < links.length; index++) {
+            links[index].removeAttribute('href');
         }
-    </script>
+    }
+</script>
 <style>
-body{
-  text-decoration: none !important;
-}
-#apply {
-  position: fixed;
-  cursor: pointer;
-  top: 50vh;
-  left: 50%;
-  color: white;
-  transform: translate3d(-50%, -50%, 0);
-  padding: 0.7em calc(0.7em * 1.2);
-  display: inline-block;
-  border: 3px solid transparent;
-  position: relative;
-  font-size: 1.5em;
-  letter-spacing: 0.07em;
-}
-#apply .text {
-  font-family: ;
-  transform: translate3d(0, 0.7em, 0);
-  display: block;
-  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
-}
-#apply:after {
-  position: absolute;
-  content: '';
-  bottom: -3px;
-  left: calc(0.7em * 1.2);
-  right: calc(0.7em * 1.2);
-  height: 3px;
-  background: #f26522;
-  z-index: -1;
-  transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
-  transform-origin: left;
-}
+    body {
+        text-decoration: none !important;
+    }
 
-.line {
-  position: absolute;
-  background: #f26522;
-}
-.line.-right, .line.-left {
-  width: 3px;
-  bottom: -3px;
-  top: -3px;
-  transform: scale3d(1, 0, 1);
-}
-.line.-top, .line.-bottom {
-  height: 3px;
-  left: -3px;
-  right: -3px;
-  transform: scale3d(0, 1, 1);
-}
-.line.-right {
-  right: -3px;
-  transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
-  transform-origin: top;
-}
-.line.-top {
-  top: -3px;
-  transition: transform 0.08s linear 0.43s;
-  transform-origin: left;
-}
-.line.-left {
-  left: -3px;
-  transition: transform 0.08s linear 0.51s;
-  transform-origin: bottom;
-}
-.line.-bottom {
-  bottom: -3px;
-  transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
-  transform-origin: right;
-}
+    #apply {
+        position: fixed;
+        cursor: pointer;
+        top: 50vh;
+        left: 50%;
+        color: white;
+        transform: translate3d(-50%, -50%, 0);
+        padding: 0.7em calc(0.7em * 1.2);
+        display: inline-block;
+        border: 3px solid transparent;
+        position: relative;
+        font-size: 1.5em;
+        letter-spacing: 0.07em;
+    }
 
-#apply:hover .text,
-#apply:active .text {
-  transform: translate3d(0, 0, 0);
-  transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.4s;
-}
-#apply:hover:after,
-#apply:active:after {
-  transform: scale3d(0, 1, 1);
-  right: -3px;
-  left: -3px;
-  transform-origin: right;
-  transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
-}
-#apply:hover .line,
-#apply:active .line {
-  transform: scale3d(1, 1, 1);
-}
-#apply:hover .line.-right,
-#apply:active .line.-right {
-  transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
-  transform-origin: bottom;
-}
-#apply:hover .line.-top,
-#apply:active .line.-top {
-  transition: transform 0.08s linear 0.4s;
-  transform-origin: right;
-}
-#apply:hover .line.-left,
-#apply:active .line.-left {
-  transition: transform 0.08s linear 0.48s;
-  transform-origin: top;
-}
-#apply:hover .line.-bottom,
-#apply:active .line.-bottom {
-  transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
-  transform-origin: left;
+    #apply .text {
+        font-family: ;
+        transform: translate3d(0, 0.7em, 0);
+        display: block;
+        transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+    }
 
-}
-body, h1,h2,h3,h4,h5,h6 {font-family: "PT Sans", Sans-Serif;}
-p {
-  font-family: "PT Sans", Sans-Serif;
-  font-style: normal;
-  font-variant: normal;
-  color:white;
-  font-weight: 100 !important;
-  line-height: 20px;
-  font-stretch: 200em !important;
-  text-decoration:none;
-}
-.w3-row-padding img {margin-bottom: 12px}
-/* Set the width of the sidebar to 120px */
-.w3-sidebar {width: 120px;background: #222;}
-/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-#main {margin-left: 120px}
-/* Remove margins from "page content" on small screens */
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+    #apply:after {
+        position: absolute;
+        content: '';
+        bottom: -3px;
+        left: calc(0.7em * 1.2);
+        right: calc(0.7em * 1.2);
+        height: 3px;
+        background: #f26522;
+        z-index: -1;
+        transition: transform 0.8s cubic-bezier(1, 0, 0.37, 1) 0.2s, right 0.2s cubic-bezier(0.04, 0.48, 0, 1) 0.6s, left 0.4s cubic-bezier(0.04, 0.48, 0, 1) 0.6s;
+        transform-origin: left;
+    }
 
-@-webkit-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@-o-keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-.fade-in {
-  opacity: 0;
-  -webkit-animation: fadeIn ease-in 1;
-       -o-animation: fadeIn ease-in 1;
-          animation: fadeIn ease-in 1;
-  -webkit-animation-fill-mode: forwards;
-       -o-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-duration: 1s;
-       -o-animation-duration: 1s;
-          animation-duration: 1s;
-}
-.fade-in.one {
-  -webkit-animation-delay: 1s;
-       -o-animation-delay: 1s;
-          animation-delay: 1s;
-          font-size:40px;
-}
-.fade-in.two {
-  -webkit-animation-delay: 2s;
-       -o-animation-delay: 2s;
-          animation-delay: 2s;
-          font-size:40px;
-}
-.fade-in.three {
-  -webkit-animation-delay: 3s;
-       -o-animation-delay: 3s;
-          animation-delay: 3s;
-          font-size:40px;
-}
-.fade-in.four {
-  -webkit-animation-delay: 4s;
-       -o-animation-delay: 4s;
-          animation-delay: 4s;
-          font-size:40px;
-}
-/*Scroll bar css*/
-#style-2::-webkit-scrollbar-track
-{
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  border-radius: 10px;
-  background-color: #565555;
-}
+    .line {
+        position: absolute;
+        background: #f26522;
+    }
 
-#style-2::-webkit-scrollbar
-{
-  width: 12px;
-  background-color: #565555;
-}
+    .line.-right,
+    .line.-left {
+        width: 3px;
+        bottom: -3px;
+        top: -3px;
+        transform: scale3d(1, 0, 1);
+    }
 
-#style-2::-webkit-scrollbar-thumb
-{
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-  background-color: #666666;
-}
+    .line.-top,
+    .line.-bottom {
+        height: 3px;
+        left: -3px;
+        right: -3px;
+        transform: scale3d(0, 1, 1);
+    }
 
-a,i,p,body{
-    text-decoration:none;
-}
-#clockdiv{
-	font-family: sans-serif;
-	color: #000;
-	display: inline-block;
-	font-weight: 100;
-	text-align: center;
-	font-size: 30px;
-}
+    .line.-right {
+        right: -3px;
+        transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.23s;
+        transform-origin: top;
+    }
 
-#clockdiv > div{
-	padding: 10px;
-	border-radius: 3px;
-	background: #fff;
-	display: inline-block;
-}
+    .line.-top {
+        top: -3px;
+        transition: transform 0.08s linear 0.43s;
+        transform-origin: left;
+    }
 
-#clockdiv div > span{
-	padding: 15px;
-	border-radius: 3px;
-	background: #fff;
-	display: inline-block;
-}
+    .line.-left {
+        left: -3px;
+        transition: transform 0.08s linear 0.51s;
+        transform-origin: bottom;
+    }
 
-.smalltext{
-	padding-top: 5px;
-	font-size: 16px;
-}
+    .line.-bottom {
+        bottom: -3px;
+        transition: transform 0.3s cubic-bezier(1, 0, 0.65, 1.01);
+        transform-origin: right;
+    }
+
+    #apply:hover .text,
+    #apply:active .text {
+        transform: translate3d(0, 0, 0);
+        transition: transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.4s;
+    }
+
+    #apply:hover:after,
+    #apply:active:after {
+        transform: scale3d(0, 1, 1);
+        right: -3px;
+        left: -3px;
+        transform-origin: right;
+        transition: transform 0.2s cubic-bezier(1, 0, 0.65, 1.01) 0.17s, right 0.2s cubic-bezier(1, 0, 0.65, 1.01), left 0s 0.3s;
+    }
+
+    #apply:hover .line,
+    #apply:active .line {
+        transform: scale3d(1, 1, 1);
+    }
+
+    #apply:hover .line.-right,
+    #apply:active .line.-right {
+        transition: transform 0.1s cubic-bezier(1, 0, 0.65, 1.01) 0.2s;
+        transform-origin: bottom;
+    }
+
+    #apply:hover .line.-top,
+    #apply:active .line.-top {
+        transition: transform 0.08s linear 0.4s;
+        transform-origin: right;
+    }
+
+    #apply:hover .line.-left,
+    #apply:active .line.-left {
+        transition: transform 0.08s linear 0.48s;
+        transform-origin: top;
+    }
+
+    #apply:hover .line.-bottom,
+    #apply:active .line.-bottom {
+        transition: transform 0.5s cubic-bezier(0, 0.53, 0.29, 1) 0.56s;
+        transform-origin: left;
+
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "PT Sans", Sans-Serif;
+    }
+
+    p {
+        font-family: "PT Sans", Sans-Serif;
+        font-style: normal;
+        font-variant: normal;
+        color: white;
+        font-weight: 100 !important;
+        line-height: 20px;
+        font-stretch: 200em !important;
+        text-decoration: none;
+    }
+
+    .w3-row-padding img {
+        margin-bottom: 12px
+    }
+
+    /* Set the width of the sidebar to 120px */
+    .w3-sidebar {
+        width: 120px;
+        background: #222;
+    }
+
+    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+    #main {
+        margin-left: 120px
+    }
+
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {
+        #main {
+            margin-left: 0
+        }
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @-o-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .fade-in {
+        opacity: 0;
+        -webkit-animation: fadeIn ease-in 1;
+        -o-animation: fadeIn ease-in 1;
+        animation: fadeIn ease-in 1;
+        -webkit-animation-fill-mode: forwards;
+        -o-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+        -webkit-animation-duration: 1s;
+        -o-animation-duration: 1s;
+        animation-duration: 1s;
+    }
+
+    .fade-in.one {
+        -webkit-animation-delay: 1s;
+        -o-animation-delay: 1s;
+        animation-delay: 1s;
+        font-size: 40px;
+    }
+
+    .fade-in.two {
+        -webkit-animation-delay: 2s;
+        -o-animation-delay: 2s;
+        animation-delay: 2s;
+        font-size: 40px;
+    }
+
+    .fade-in.three {
+        -webkit-animation-delay: 3s;
+        -o-animation-delay: 3s;
+        animation-delay: 3s;
+        font-size: 40px;
+    }
+
+    .fade-in.four {
+        -webkit-animation-delay: 4s;
+        -o-animation-delay: 4s;
+        animation-delay: 4s;
+        font-size: 40px;
+    }
+
+    /*Scroll bar css*/
+    #style-2::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        background-color: #565555;
+    }
+
+    #style-2::-webkit-scrollbar {
+        width: 12px;
+        background-color: #565555;
+    }
+
+    #style-2::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+        background-color: #666666;
+    }
+
+    a,
+    i,
+    p,
+    body {
+        text-decoration: none;
+    }
+
+    #clockdiv {
+        font-family: sans-serif;
+        color: #000;
+        display: inline-block;
+        font-weight: 100;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    #clockdiv>div {
+        padding: 10px;
+        border-radius: 3px;
+        background: #fff;
+        display: inline-block;
+    }
+
+    #clockdiv div>span {
+        padding: 15px;
+        border-radius: 3px;
+        background: #fff;
+        display: inline-block;
+    }
+
+    .smalltext {
+        padding-top: 5px;
+        font-size: 16px;
+    }
 </style>
 <script>
-  (function(d) {
-    var config = {
-      kitId: 'gpg1ltj',
-      scriptTimeout: 3000,
-      async: true
-    },
-    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-  })(document);
-
-
+    (function(d) {
+        var config = {
+                kitId: 'gpg1ltj',
+                scriptTimeout: 3000,
+                async: true
+            },
+            h = d.documentElement,
+            t = setTimeout(function() {
+                h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+            }, config.scriptTimeout),
+            tk = d.createElement("script"),
+            f = false,
+            s = d.getElementsByTagName("script")[0],
+            a;
+        h.className += " wf-loading";
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function() {
+            a = this.readyState;
+            if (f || a && a != "complete" && a != "loaded") return;
+            f = true;
+            clearTimeout(t);
+            try {
+                Typekit.load(config)
+            } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s)
+    })(document);
 </script>
 
 
 <body class="w3-black" data-spy="scroll" data-target="navbar1" offset=20 onload="test();">
-<!-- scroll bar-->
-  <div class="scrollbar" id="style-1">
-      <div class="force-overflow"></div>
+    <!-- scroll bar-->
+    <div class="scrollbar" id="style-1">
+        <div class="force-overflow"></div>
     </div>
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  <img src="images/logovit.png" style="width:100%">
-  <ul>
-    <li data-menuanchor="#main">
-  <a href="#main" class="w3-bar-item w3-button w3-padding-large w3-black" style="text-decoration:none">
-    <i class="fa fa-home w3-xlarge"></i>
-    <p>HOME</p>
-  </a>
-</li>
-<li data-menuanchor="#councils">
-  <a href="#councils" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
-    <i class="fa fa-user w3-xlarge"></i>
-    <p>COUNCILS</p>
-  </a>
-</li>
-<li data-menuanchor="#exec">
-  <a href="#exec" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
-    <i class="fa fa-eye w3-xlarge"></i>
-    <p>DELEGATE</p>
-  </a>
-</li>
-<li data-menuanchor="#secretariat">
-  <a href="#secretariat" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
-    <i class="fa fa-black-tie w3-xlarge"></i>
-    <p>SECRETARIAT</p>
-  </a>
-</li>
-<li data-menuanchor="#cont">
-  <a href="#cont" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
-    <i class="fa fa-phone w3-xlarge"></i>
-    <p>CONTACT</p>
-  </a>
-</li>
-<!--li>
+    <!-- Icon Bar (Sidebar - hidden on small screens) -->
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+        <!-- Avatar image in top left corner -->
+        <img src="images/logovit.png" style="width:100%">
+        <ul>
+            <li data-menuanchor="#main">
+                <a href="#main" class="w3-bar-item w3-button w3-padding-large w3-black" style="text-decoration:none">
+                    <i class="fa fa-home w3-xlarge"></i>
+                    <p>HOME</p>
+                </a>
+            </li>
+            <li data-menuanchor="#councils">
+                <a href="#councils" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
+                    <i class="fa fa-user w3-xlarge"></i>
+                    <p>COUNCILS</p>
+                </a>
+            </li>
+            <li data-menuanchor="#exec">
+                <a href="#exec" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
+                    <i class="fa fa-eye w3-xlarge"></i>
+                    <p>DELEGATE</p>
+                </a>
+            </li>
+            <li data-menuanchor="#secretariat">
+                <a href="#secretariat" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
+                    <i class="fa fa-black-tie w3-xlarge"></i>
+                    <p>SECRETARIAT</p>
+                </a>
+            </li>
+            <li data-menuanchor="#cont">
+                <a href="./collaborations/index.html" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
+                    <i class="fa fa-handshake-o w3-xlarge"></i>
+                    <p>COLLABS</p>
+                </a>
+            </li>
+            <li data-menuanchor="#cont">
+                <a href="#cont" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
+                    <i class="fa fa-phone w3-xlarge"></i>
+                    <p>CONTACT</p>
+                </a>
+            </li>
+            <!--li>
   <a href="http://www.vitcmun.in/sponsors/" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
     <i class="fa fa-users w3-xxlarge"></i>
     <p>SPONSORS</p>
   </a>
 </li-->
-<!--li>
+            <!--li>
   <a href="https://www.townscript.com/e/vitcmun-2018-221022/booking" class="w3-bar-item w3-button w3-padding-large w3-hover-black" style="text-decoration:none">
     <i class="fa fa-inr w3-xlarge"></i>
     <p>PAYMENTS</p>
   </a>
 </li-->
-</ul>
-</nav>
+        </ul>
+    </nav>
 
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <ul>
-      <li>
-    <a href="#main" class="w3-bar-item w3-button" style="width:15% !important;text-decoration:none">Home</a></li>
-    <li>
-    <a href="#councils" class="w3-bar-item w3-button" style="width:20% !important;text-decoration:none">Councils</a></li>
-    <li>
-    <a href="#exec" class="w3-bar-item w3-button" style="width:20% !important;text-decoration:none">Delegate</a></li>
-    <li>
-    <a href="#secretariat" class="w3-bar-item w3-button" style="width:24% !important;text-decoration:none">Secretariat</a></li>
-    <li>
-    <a href="#cont" class="w3-bar-item w3-button" style="width:19% !important;text-decoration:none">Contact</a></li>
-    <!--li>
+    <!-- Navbar on small screens (Hidden on medium and large screens) -->
+    <div class="w3-top w3-hide-large w3-hide-medium">
+        <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+            <ul>
+                <li>
+                    <a href="#main" class="w3-bar-item w3-button" style="width:15% !important;text-decoration:none">Home</a></li>
+                <li>
+                    <a href="#councils" class="w3-bar-item w3-button" style="width:20% !important;text-decoration:none">Councils</a></li>
+                <li>
+                    <a href="#exec" class="w3-bar-item w3-button" style="width:20% !important;text-decoration:none">Delegate</a></li>
+                <li>
+                    <a href="#secretariat" class="w3-bar-item w3-button" style="width:24% !important;text-decoration:none">Secretariat</a></li>
+                <li>
+                    <a href="#cont" class="w3-bar-item w3-button" style="width:19% !important;text-decoration:none">Contact</a></li>
+                <li>
+                    <a href="./collaborations/index.html" class="w3-bar-item w3-button" style="width:100% !important;text-decoration:none">Collabs</a></li>
+                <!--li>
     <a href="http://www.vitcmun.in/sponsors/" class="w3-bar-item w3-button" style="width:23% !important;text-decoration:none">Sponsors</a></li-->
-    </ul>
-  </div>
-</div>
+            </ul>
+        </div>
+    </div>
 
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-    <header class="w3-container w3-center w3-black" id="home">
-    <img src="images/logovit.png" class="w3-image w3-animate-zoom" width="500px" height="500px">
-     <!--Animation@Dwij-->
-<!--p style="padding-left:15px; line-height:250%"><span class="fade-in one">Debate.  </span>
-<span class="fade-in two">Delegate.  </span>
-<span class="fade-in three">Decimate.  </span></p-->
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+        <!-- Header/Home -->
+        <header class="w3-container w3-center w3-black" id="home">
+            <img src="images/logovit.png" class="w3-image w3-animate-zoom" width="500px" height="500px">
+            <!--Animation@Dwij-->
+            <p style="padding-left:15px; line-height:250%"><span class="fade-in one">Debate. </span>
+                <span class="fade-in two">Delegate. </span>
+                <span class="fade-in three">Decimate. </span></p>
 
-    <!--Animation Ends Here-->
+            <!--Animation Ends Here-->
 
-  </header>
-
-  <div class="w3-hide-small" style="margin-top: 250px">
-  </div>
-<div id="councils" style="padding-top:10px">
-</div>
-<!-- European Council -->
-  <div class="w3-center w3-container" style="margin-top:100px">
-    <p style="font-size:50px">Councils</p>
-  </div>
-  <div class="w3-content w3-display-container" style="max-width:1080px; max-height:1080px; margin-top:20px">
-  <div class="mySlides w3-row">
-      <!-- Image -->
-      <div class="w3-col l6 m12 s12">
-        <img class="w3-animate-opacity w3-image" src="images/EU.png" style="height:100% ;width:100%">
-      </div>
-
-    <div class="w3-col l6 m12 s12" style="height:100%">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%; height:100%">
-        <header class="w3-container">
-            <div class="max-height:76px; height:76px;">
-          <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">European Council</p>
-          </div>
         </header>
-        <div class="w3-container w3-hide-small">
-          <p class="w3-animate-zoom">The European Council (EC) is a strategic and crisis-solving body that provides the union with general political directions and priorities, and acts as a collective presidency. The European Council provides an impetus to guide legislative policy of the Union.</p>
+
+        <div class="w3-hide-small" style="margin-top: 250px">
         </div>
-        <!--this is the commented button part, uncomment and link this part-->
-        <!--div class="w3-container">
-            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px; text-decoration:none" href="/ExecutiveBoard/index.html">Know More</a>
-        </div-->
-      </div>
-      </div>
-  </div>
-
-<!-- United Nations Commission on the Status of Women -->
-  <div class="mySlides w3-row">
-    <!-- Image -->
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/UNCSW.png" style="height:100% ;width:100%">
-    </div>
-
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-            <div class="max-height:76px; height:76px;">
-          <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">United Nations Commission on the Status of Women</p>
-          </div>
-        </header>
-        <div class="w3-container w3-hide-small">
-          <p class="w3-animate-zoom">The Commission on the Status of Women is a functional commission of the United Nations Economic and Social Council. CSW has been described as the UN organ promoting gender equality and the empowerment of women.</p>
+        <div id="councils" style="padding-top:10px">
         </div>
-                <!--this is the commented button part, uncomment and link this part-->
-        <!--div class="w3-container">
-            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="/ExecutiveBoard/trilateral.html">Know More</a>
-        </div-->
-      </div>
-    </div>
-  </div>
-
-<!-- All India Political Parties Meet -->
-  <div class="mySlides w3-row">
-    <!-- Image -->
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/aippm.png" style="height:100%;width:100%">
-    </div>
-
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-            <div class="max-height:76px; height:76px;">
-          <p style="font-size:36px; line-height:150%" class="w3-animate-zoom" >All India Political Parties Meet</p>
-          </div>
-        </header>
-        <div class="w3-container w3-hide-small">
-          <p class="w3-animate-zoom">The All India Political Parties Meet is a non-technical yet powerful committee introduced in order to emulate political realities by bringing to light various layers of polity and governance in India.</p>
+        <!-- European Council -->
+        <div class="w3-center w3-container" style="margin-top:100px">
+            <p style="font-size:50px">Councils</p>
         </div>
-        <!--this is the commented button part, uncomment and link this part-->
-        <!--div class="w3-container">
-            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="/ExecutiveBoard/aippm.html">Know More</a>
-        </div-->
-      </div>
-    </div>
-  </div>
+        <div class="w3-content w3-display-container" style="max-width:1080px; max-height:1080px; margin-top:20px">
+            <div class="mySlides w3-row">
+                <!-- Image -->
+                <div class="w3-col l6 m12 s12">
+                    <img class="w3-animate-opacity w3-image" src="images/EU.png" style="height:100% ;width:100%">
+                </div>
 
-<!-- Disarmament and International Security -->
-  <div class="mySlides w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/DISEC.png" style="height:100%;width:100%">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-            <div class="max-height:76px; height:76px;">
-          <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">Disarmament and International Security</p>
-          </div>
-        </header>
-        <div class="w3-container w3-hide-small">
-          <p class="w3-animate-zoom">The First Committee deals with disarmament, global challenges and threats to peace that affect the international community and seeks out solutions to the challenges in the international security regime.</p>
+                <div class="w3-col l6 m12 s12" style="height:100%">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%; height:100%">
+                        <header class="w3-container">
+                            <div class="max-height:76px; height:76px;">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">European Council</p>
+                            </div>
+                        </header>
+                        <div class="w3-container w3-hide-small">
+                            <p class="w3-animate-zoom">The European Council (EC) is a strategic and crisis-solving body that provides the union with general political directions and priorities, and acts as a collective presidency. The European
+                                Council provides an impetus to guide legislative policy of the Union.</p>
+                        </div>
+                        <!--this is the commented button part, uncomment and link this part-->
+                        <div class="w3-container">
+            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px; text-decoration:none" href="./ExecutiveBoard/ec.html">Know More</a>
         </div>
-        <!--this is the commented button part, uncomment and link this part-->
-        <!--div class="w3-container">
-            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="/ExecutiveBoard/disec.html">Know More</a>
-        </div-->
-      </div>
-    </div>
-  </div>
-
-<!-- White House Situation Room -->
-  <div class="mySlides w3-row">
-   <!-- Image -->
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/WH.png" style="height:100%;width:100%">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style=" line-height:150%; width:100%;">
-        <header class="w3-container">
-            <div class="max-height:76px; height:76px;">
-          <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">White House Situation Room</p>
-          </div>
-        </header>
-        <div class="w3-container w3-hide-small">
-          <p class="w3-animate-zoom">The White House Situation Room is where the think tanks of the mighty United States of America meets strategic competence, coupled with the highest levels of resources at a time of perilous power parity.</p>
-        </div>
-        <!--this is the commented button part, uncomment and link this part-->
-        <!--div class="w3-container">
-            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="/ExecutiveBoard/hrc.html">Know More</a>
-        </div-->
-      </div>
-    </div>
-  </div>
-
-<!-- Security Council -->
-  <div class="mySlides w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/SC.png" style="height:100%;width:100%">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-            <div class="max-height:76px; height:76px;">
-          <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">Security Council</p>
-          </div>
-        </header>
-        <div class="w3-container w3-hide-small">
-          <p class="w3-animate-zoom">The Security Council. Under the Charter, the Security Council has primary responsibility for the maintenance of international peace and security.</p>
-        </div>
-        <!--this is the commented button part, uncomment and link this part-->
-        <!--div class="w3-container">
-            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="ExecutiveBoard/sc.html">Know More</a>
-        </div-->
-      </div>
-    </div>
-  </div>
-
-  <!-- International Press -->
-    <div class="mySlides w3-row">
-      <div class="w3-col l6 m12 s12">
-        <img class="w3-animate-opacity w3-image" src="images/IP.png" style="height:100%;width:100%">
-      </div>
-      <div class="w3-col l6 m12 s12">
-        <div class="w3-hide-small" style="margin-top:140px">
-        </div>
-        <div class="w3-card w3-center" style="width:100%;">
-          <header class="w3-container">
-              <div class="max-height:76px; height:76px;">
-            <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">International Press</p>
+                    </div>
+                </div>
             </div>
-          </header>
-          <div class="w3-container w3-hide-small">
-            <p class="w3-animate-zoom">The International Press is a committee that encapsulates elements of sheer excellence and finesse in the form of journalism and photography. The IP emboldens the footprints left post the conference, and is the most formal testimony of the same.</p>
-          </div>
-          <!--this is the commented button part, uncomment and link this part-->
-          <!--div class="w3-container">
-              <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="ExecutiveBoard/sc.html">Know More</a>
-          </div-->
+
+            <!-- United Nations Commission on the Status of Women -->
+            <div class="mySlides w3-row">
+                <!-- Image -->
+                <div class="w3-col l6 m12 s12">
+                    <img class="w3-animate-opacity w3-image" src="images/UNCSW.png" style="height:100% ;width:100%">
+                </div>
+
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div class="max-height:76px; height:76px;">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">United Nations Commission on the Status of Women</p>
+                            </div>
+                        </header>
+                        <div class="w3-container w3-hide-small">
+                            <p class="w3-animate-zoom">The Commission on the Status of Women is a functional commission of the United Nations Economic and Social Council. CSW has been described as the UN organ promoting gender equality and the
+                                empowerment of women.</p>
+                        </div>
+                        <!--this is the commented button part, uncomment and link this part-->
+                        <div class="w3-container">
+            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="./ExecutiveBoard/uncsw.html">Know More</a>
         </div>
-      </div>
-    </div>
+                    </div>
+                </div>
+            </div>
 
-   <button class="w3-btn w3-transparent w3-display-left w3-xlarge " onclick="plusDivs1(-1)">&#10094;</button>
-  <button class="w3-btn w3-transparent w3-display-right w3-xlarge" onclick="plusDivs1(1)">&#10095;</button>
-</div>
+            <!-- All India Political Parties Meet -->
+            <div class="mySlides w3-row">
+                <!-- Image -->
+                <div class="w3-col l6 m12 s12">
+                    <img class="w3-animate-opacity w3-image" src="images/aippm.png" style="height:100%;width:100%">
+                </div>
 
-<script>
-var slideIndex = 1;
-showDivs1(slideIndex);
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div class="max-height:76px; height:76px;">
+                                <p style="font-size:36px; line-height:150%" class="w3-animate-zoom">All India Political Parties Meet</p>
+                            </div>
+                        </header>
+                        <div class="w3-container w3-hide-small">
+                            <p class="w3-animate-zoom">The All India Political Parties Meet is a non-technical yet powerful committee introduced in order to emulate political realities by bringing to light various layers of polity and governance in
+                                India.</p>
+                        </div>
+                        <!--this is the commented button part, uncomment and link this part-->
+                        <div class="w3-container">
+            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="./ExecutiveBoard/aippm.html">Know More</a>
+        </div>
+                    </div>
+                </div>
+            </div>
 
-function plusDivs1(n) {
-  showDivs1(slideIndex += n);
-}
+            <!-- Disarmament and International Security -->
+            <div class="mySlides w3-row">
+                <div class="w3-col l6 m12 s12">
+                    <img class="w3-animate-opacity w3-image" src="images/DISEC.png" style="height:100%;width:100%">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div class="max-height:76px; height:76px;">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">Disarmament and International Security</p>
+                            </div>
+                        </header>
+                        <div class="w3-container w3-hide-small">
+                            <p class="w3-animate-zoom">The First Committee deals with disarmament, global challenges and threats to peace that affect the international community and seeks out solutions to the challenges in the international security
+                                regime.</p>
+                        </div>
+                        <!--this is the commented button part, uncomment and link this part-->
+                        <div class="w3-container">
+            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="./ExecutiveBoard/disec.html">Know More</a>
+        </div>
+                    </div>
+                </div>
+            </div>
 
-function showDivs1(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-  x[slideIndex-1].style.display = "block";
-}
+            <!-- White House Situation Room -->
+            <div class="mySlides w3-row">
+                <!-- Image -->
+                <div class="w3-col l6 m12 s12">
+                    <img class="w3-animate-opacity w3-image" src="images/WH.png" style="height:100%;width:100%">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style=" line-height:150%; width:100%;">
+                        <header class="w3-container">
+                            <div class="max-height:76px; height:76px;">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">White House Situation Room</p>
+                            </div>
+                        </header>
+                        <div class="w3-container w3-hide-small">
+                            <p class="w3-animate-zoom">The White House Situation Room is where the think tanks of the mighty United States of America meets strategic competence, coupled with the highest levels of resources at a time of perilous
+                                power parity.</p>
+                        </div>
+                        <!--this is the commented button part, uncomment and link this part-->
+                        <div class="w3-container">
+            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="./ExecutiveBoard/whsr.html">Know More</a>
+        </div>
+                    </div>
+                </div>
+            </div>
 
-</script>
+            <!-- Security Council -->
+            <div class="mySlides w3-row">
+                <div class="w3-col l6 m12 s12">
+                    <img class="w3-animate-opacity w3-image" src="images/SC.png" style="height:100%;width:100%">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div class="max-height:76px; height:76px;">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">Security Council</p>
+                            </div>
+                        </header>
+                        <div class="w3-container w3-hide-small">
+                            <p class="w3-animate-zoom">The Security Council. Under the Charter, the Security Council has primary responsibility for the maintenance of international peace and security.</p>
+                        </div>
+                        <!--this is the commented button part, uncomment and link this part-->
+                        <div class="w3-container">
+            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="./ExecutiveBoard/sc.html">Know More</a>
+        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- International Press -->
+            <div class="mySlides w3-row">
+                <div class="w3-col l6 m12 s12">
+                    <img class="w3-animate-opacity w3-image" src="images/IP.png" style="height:100%;width:100%">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div class="max-height:76px; height:76px;">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px">International Press</p>
+                            </div>
+                        </header>
+                        <div class="w3-container w3-hide-small">
+                            <p class="w3-animate-zoom">The International Press is a committee that encapsulates elements of sheer excellence and finesse in the form of journalism and photography. The IP emboldens the footprints left post the
+                                conference, and is the most formal testimony of the same.</p>
+                        </div>
+                        <!--this is the commented button part, uncomment and link this part-->
+                        <div class="w3-container">
+              <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;text-decoration:none" href="./ExecutiveBoard/ip.html">Know More</a>
+          </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="w3-btn w3-transparent w3-display-left w3-xlarge " onclick="plusDivs1(-1)">&#10094;</button>
+            <button class="w3-btn w3-transparent w3-display-right w3-xlarge" onclick="plusDivs1(1)">&#10095;</button>
+        </div>
+
+        <script>
+            var slideIndex = 1;
+            showDivs1(slideIndex);
+
+            function plusDivs1(n) {
+                showDivs1(slideIndex += n);
+            }
+
+            function showDivs1(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                if (n > x.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = x.length
+                }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                x[slideIndex - 1].style.display = "block";
+            }
+        </script>
 
 
-  <!--you will have to start from here, the replacement thing-->
-  <div id="exec" style="margin-bottom:20px"></div>
-  <div class="w3-hide-small" style="padding-top:130px"></div>
-<div class="w3-center w3-hide-small" style="font-size:36px">
-<p style="line-height:45px">Applications for VITCMUN '19</p><br>
-<div class="w3-container">
-        <div class="w3-row w3-center">
-            <div class="w3-col l4 m4">
-<p style="color:black; font-size:1px">hi</p>
-</div>
-<div class="w3-col l4 m4">
-<!--Executive Board Application ka link idhar hai-->
-  <button onclick="location.href='./applications/index.html'" class="w3-btn w3-round-xlarge w3-border w3-padding-large  w3-hover-white" style="margin-top:10px;font-size:20px; text-decoration:none">Delegate Applications
-  </button>
-<!---->
-</div>
+        <!--you will have to start from here, the replacement thing-->
+        <div id="exec" style="margin-bottom:10px"></div>
+        <div class="w3-hide-small" style="padding-top:130px"></div>
+        <div class="w3-center w3-hide-small" style="font-size:36px">
+            <p style="line-height:45px">Applications for VITCMUN '19</p><br>
+            <!--p style="line-height:45px">Round 2: Coming Soon</p><br-->
+            <div class="w3-container">
+                <div class="w3-row w3-center">
+                    <div class="w3-col l4 m4">
+                        <p style="color:black; font-size:1px">hi</p>
+                    </div>
+                    <div class="w3-col l4 m4">
+                        <!--Executive Board Application ka link idhar hai-->
 
-<div class="w3-col l4 m4">
-  <!--button onclick="document.getElementById('id01').style.display='block'" class="w3-btn w3-round-xlarge w3-border w3-padding-large  w3-hover-white" style="margin-top:10px;font-size:20px; text-decoration:none"> Applications Coming Soon!
+                        <!---->
+                    </div>
+
+                    <div class="w3-col l4 m4">
+                        <!--button onclick="document.getElementById('id01').style.display='block'" class="w3-btn w3-round-xlarge w3-border w3-padding-large  w3-hover-white" style="margin-top:10px;font-size:20px; text-decoration:none"> Applications Coming Soon!
   </button>
 
 
@@ -656,27 +782,30 @@ function showDivs1(n) {
         </div>
       </div>
     </div-->
-</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="w3-container">
+                <div class="w3-col l4 m4">
+                    <button onclick="location.href='./applications/index.html'" class="w3-btn w3-round-xlarge w3-border w3-padding-large  w3-hover-white" style="margin-top:10px;font-size:20px; text-decoration:none">Delegate Applications
+                    </button>
+                </div>
+                <div class="w3-col l4 m4">
+                    <!--IP Board Application ka link idhar hai-->
+                    <button onclick="location.href='./ip/index.php'" class="w3-btn w3-round-xlarge w3-border w3-padding-large  w3-hover-white" style="margin-top:10px;font-size:20px; text-decoration:none"> International Press Applications
+    </button>
+                    <!---->
+                </div>
+                <div class="w3-col l4 m4">
+                    <button onclick="location.href='./photography/index.php'" class="w3-btn w3-round-xlarge w3-border w3-padding-large  w3-hover-white" style="margin-top:10px;font-size:20px; text-decoration:none"> Photography Applications
+    </button>
+                    <p style="color:black; font-size:1px">hi</p>
+                </div>
+            </div>
 
         </div>
-        </div>
-<div class="w3-container">
-  <div class="w3-col l4 m4">
-<p style="color:black; font-size:1px">hi</p>
-  </div>
-  <div class="w3-col l4 m4">
-  <!--IP Board Application ka link idhar hai-->
-    <!--button onclick="location.href='./iphead/index.html'" class="w3-btn w3-round-xlarge w3-border w3-padding-large  w3-hover-white" style="margin-top:10px;font-size:20px; text-decoration:none"> International Press Applications
-    </button-->
-  <!---->
-  </div>
-  <div class="w3-col l4 m4">
-<p style="color:black; font-size:1px">hi</p>
-  </div>
-</div>
-
-      </div>
-<!--a href="http://vitcmun.in/DelegateApplication" style="
+        <!--a href="http://vitcmun.in/DelegateApplication" style="
 
 
 
@@ -797,38 +926,38 @@ a:active .line.-bottom {
   <span class="line -bottom"></span>
 </a>-->
 
-    <div class="w3-container w3-center" style="margin-top:50px; margin-bottom:50px; overflow: hidden;">
-        <p id="demo" style="margin-top:20px"></p>
+        <div class="w3-container w3-center" style="margin-top:10px; margin-bottom:10px; overflow: hidden;">
+            <p id="demo" style="margin-top:20px"></p>
 
 
 
-<script>
-// var countDownDate = new Date("Dec 29, 2017 18:00:00").getTime();
+            <script>
+                // var countDownDate = new Date("Dec 29, 2017 18:00:00").getTime();
 
 
-// var x = setInterval(function() {
+                // var x = setInterval(function() {
 
 
-//     var now = new Date().getTime();
+                //     var now = new Date().getTime();
 
-//     var distance = countDownDate - now;
+                //     var distance = countDownDate - now;
 
-//     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-//     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-//     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-//     document.getElementById("demo").innerHTML = hours + "h "
-//     + minutes + "m " + seconds + "s ";
+                //     document.getElementById("demo").innerHTML = hours + "h "
+                //     + minutes + "m " + seconds + "s ";
 
-//     if (distance < 0) {
-//         clearInterval(x);
-//         document.getElementById("demo").innerHTML = "EXPIRED";
-//     }
-// }, 1000);
-</script>
+                //     if (distance < 0) {
+                //         clearInterval(x);
+                //         document.getElementById("demo").innerHTML = "EXPIRED";
+                //     }
+                // }, 1000);
+            </script>
 
-      <!--<div id="clockdiv">
+            <!--<div id="clockdiv">
           <div class="w3-row">
              <div class="w3-col l3 m3 s3">
   <div style="margin-right:5px">
@@ -856,26 +985,31 @@ a:active .line.-bottom {
   </div>
   </div>
 </div>-->
-    </div>
-    <div class="w3-container w3-center w3-black w3-hide-medium w3-hide-large" style="margin-bottom:100px">
-        <p style="line-height:30px; font-size:25px">
-            Applications for VITCMUN '19'
-        </p>
-        <div class="w3-row w3-center">
-          <div class="margin-top w3-col l3 m3">
-          <a href="./applications/index.html" class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="margin-top:10px;font-size:16px; text-decoration:none">Delegate Applications</a>
         </div>
-<!--Eb Applications for Mobiles idhar hai-->
-            <!--div class="margin-top w3-col l3 m3">
-            <a href="./ebapplication/index.html" class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="margin-top:10px;font-size:16px; text-decoration:none">Executive Board Applications</a>
+        <div class="w3-container w3-center w3-black w3-hide-medium w3-hide-large" style="margin-bottom:50px">
+            <p style="line-height:30px; font-size:25px">
+                Applications for VITCMUN '19'
+                <br>
+            </p>
+            <div class="w3-row w3-center">
+                <div class="margin-top w3-col l3 m3">
+                    <a href="./applications/index.html" class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="margin-top:10px;font-size:16px; text-decoration:none">Delegate Applications</a>
+                </div>
+                <!--Eb Applications for Mobiles idhar hai-->
+                <div class="margin-top w3-col l3 m3">
+            <a href="./ip/index.php" class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="margin-top:10px;font-size:16px; text-decoration:none">International Press Applications</a>
             </div>
 
             <div class="margin-top w3-col l3 m3">
+                <a href="./photography/index.html" class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="margin-top:10px;font-size:16px; text-decoration:none">Photography Applications</a>
+            </div>
+
+            <!--div class="margin-top w3-col l3 m3">
             <a href="./iphead/index.html" class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="margin-top:10px;font-size:16px; text-decoration:none">International Press Applications</a>
           </div-->
 
-<!--Done thill here-->
-  <!--div id="id02" class="w3-modal">
+                <!--Done thill here-->
+                <!--div id="id02" class="w3-modal">
     <div class="w3-modal-content">
       <header class="w3-container w3-padding-16 w3-dark-gray">
         <span onclick="document.getElementById('id02').style.display='none'"
@@ -887,387 +1021,388 @@ a:active .line.-bottom {
       </div>
     </div>
   </div-->
-            <div class="w3-col l3 m3 w3-margin-top">
-            </div>
-                        <!--div class="w3-col l3 m3 w3-margin-top">
+                <div class="w3-col l3 m3 w3-margin-top">
+                </div>
+                <!--div class="w3-col l3 m3 w3-margin-top">
                 <a class="w3-btn w3-round-xlarge w3-border w3-block w3-hover-white" style="font-size:16px; text-decoration:none" href="https://www.townscript.com/e/vitcmun-2018-221022/booking">Payment Link</a>
             </div-->
+            </div>
         </div>
-</div>
 
-<script src="js/index.js"></script>
-
+        <script src="js/index.js"></script>
 
 
-    <!--Till this part you will have to replace-->
 
-<div style="padding-bottom:60px">
+        <!--Till this part you will have to replace-->
 
-</div>
+        <div style="padding-bottom:0px">
 
-<!--div class="w3-container w3-center w3-black w3-hide-small" style="font-size:38px; margin-bottom:250px">
+        </div>
+
+        <div class="w3-container w3-center w3-black w3-hide-small" style="font-size:38px; margin-bottom:250px">
     <p style="line-height:45px">
         Know your allotments!
     </p>
     <br>
-    <a class="w3-btn w3-round-xlarge w3-border w3-hover-white" style="font-size:20px; text-decoration:none" href="http://www.vitcmun.in/allotments/Allotment.php">Click here!</a>
-</div-->
+    <a class="w3-btn w3-round-xlarge w3-border w3-hover-white" style="font-size:20px; text-decoration:none" href="http://www.vitcmun.in/allotments/index.php" target="_blank">Click here!</a>
+</div>
 
-<!--div class="w3-container w3-center w3-black w3-hide-medium w3-hide-large" style="margin-bottom:250px">
+        <div class="w3-container w3-center w3-black w3-hide-medium w3-hide-large" style="margin-bottom:250px">
     <p style="line-height:10px; font-size:25px">
         Know your allotments!
     </p>
     <br>
-    <a class="w3-btn w3-round-xlarge w3-border w3-hover-white" style="font-size:16px; text-decoration:none" href="http://www.vitcmun.in/allotments/Allotment.php">Click here!</a>
-</div-->
-
-<div id="secretariat" style="margin-top:40px">
-
+    <a class="w3-btn w3-round-xlarge w3-border w3-hover-white" style="font-size:16px; text-decoration:none" href="http://www.vitcmun.in/allotments/index.php" target="_blank">Click here!</a>
 </div>
-<div class="w3-center w3-container" style="margin-bottom:100px">
-    <p style="font-size:50px">Secretariat</p>
-  </div>
 
-  <!--div class="w3-content w3-display-container" style="max-width:1080px; max-height:700px; margin-top:50px"-->
+        <div id="secretariat" style="margin-top:40px">
 
-  <div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12" align="Center">
-      <img class="w3-animate-opacity w3-image" src="images/Rohit-DSG.jpeg" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px" align="center">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-            <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918667308626" style="text-decoration:none;color:#FFF">R. Rohit Joshi</p>
-            </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Secretary General</p>
-            </div>
-              <div class="w3-container">
-            <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918667308626">Call Now</a>
         </div>
-        </header>
-      </div>
-    </div></div>
+        <div class="w3-center w3-container" style="margin-bottom:100px">
+            <p style="font-size:50px">Secretariat</p>
+        </div>
 
-    <!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Krishna-DG.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919962233150" style="text-decoration:none;color:#FFF">Sangeeth C. Shajan</a></p>
+        <div class="w3-content w3-display-container" style="max-width:1080px; max-height:700px; margin-top:50px">
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/Sec-Gen.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px" align="center">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918667308626" style="text-decoration:none;color:#FFF">R. Rohit Joshi</p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Secretary General</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918667308626">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Director General</p>
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/DG.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919790712768" style="text-decoration:none;color:#FFF">Sangeeth C. Shajan</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Director General</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+919790712768">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+919790712768">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
 
-  </div-->
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/DSG.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:‎+918220080248" style="text-decoration:none;color:#FFF">Anjali Dinesh</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Deputy Secretary General</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918220080248">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
 
-<div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Rohit-DSG.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917305697156" style="text-decoration:none;color:#FFF">Anjali Dinesh</a></p>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Deputy Secretary General</p>
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/DDG.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918939966294" style="text-decoration:none;color:#FFF">Siddharth Banerjee</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Deputy Director General</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918939966294">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918220080248">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
 
-  </div>
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/CDA.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917550170320" style="text-decoration:none;color:#FFF">Vishal Ajith Mathew</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Charg&eacute; D'Affaires</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917550170320">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
 
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/adeeb-DDG.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917368317428" style="text-decoration:none;color:#FFF">Siddharth Banerjee</a></p>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Deputy Director General</p>
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/advc.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917708927040" style="text-decoration:none;color:#FFF">Rohith Santhosh</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Chief Advisor</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917708927040">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918939966294">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
 
-  </div-->
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/int2.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918800200525" style="text-decoration:none;color:#FFF">Durga Kaushik</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - USG Internal Affairs</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918800200525">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
 
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Sandip-CDA.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918870548235" style="text-decoration:none;color:#FFF">Vishal Ajith Mathew</a></p>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Charg&eacute; D'Affaires</p>
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/int.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917358362230" style="text-decoration:none;color:#FFF">Ishita Mallick</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - USG Internal Affairs</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917358362230">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917550170320">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
 
-  </div-->
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/ADMINUSG.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919810357686" style="text-decoration:none;color:#FFF">Nikhil Gulati</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">USG Administrative Affairs</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+919810357686">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
 
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Nikhil-CDA1.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919810357686" style="text-decoration:none;color:#FFF">Rohith Santhosh</a></p>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Chief Advisor</p>
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/fin.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917338943564" style="text-decoration:none;color:#FFF">Animesh Vatsal</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">USG Finance</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917338943564">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917708927040">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
 
-  </div-->
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/Tech1.jpg" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918802776896" style="text-decoration:none;color:#FFF">Aayush Rawal</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - USG Tech</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918802776896">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
 
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Adity-Delegate Affairs.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917539991600" style="text-decoration:none;color:#FFF">Durga Kaushik</a></p>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Internal Affairs</p>
+
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/tech2.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917550249833" style="text-decoration:none;color:#FFF">Shantanu Singh</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - USG Tech</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917550249833">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918800200525">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
 
-  </div-->
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/log2.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917838883953" style="text-decoration:none;color:#FFF">Anmol Oberoi</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - USG Logistics</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917838883953">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
 
-  <!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Adity-Delegate Affairs.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917539991600" style="text-decoration:none;color:#FFF">Ishita Mallick</a></p>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Internal Affairs</p>
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/log1.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919790725645" style="text-decoration:none;color:#FFF">Nishchal Mishra</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - USG Logistics</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918667734656">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
+
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917550170350">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-  </div-->
-
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Adity-Delegate Affairs.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917539991600" style="text-decoration:none;color:#FFF">Nikhil Gulati</a></p>
-            </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Under Secretary General Administrative Affairs</p>
-            </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+919810357686">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-  </div-->
-
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Suporno-Finance.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919790731168" style="text-decoration:none;color:#FFF">Animesh Vatsal</a></p>
-            </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Under Secretary General Finance</p>
-            </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917338943564">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-  </div-->
-
-   <!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Aayush-tech.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918802776896" style="text-decoration:none;color:#FFF">Aayush Rawal</a></p>
-            </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Tech</p>
-            </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918802776896">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-  </div-->
 
 
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Sarthak-Logistics.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918802244880" style="text-decoration:none;color:#FFF">Shantanu Singh</a></p>
-            </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Tech</p>
-            </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917904045686">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-  </div-->
-
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Abhishek-logistics.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917358326045" style="text-decoration:none;color:#FFF">Anmol Oberoi</a></p>
-            </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Logistics</p>
-            </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917838883953">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-  </div-->
-
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Sunny-Design.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919790725645" style="text-decoration:none;color:#FFF">Nishchal Mishra</a></p>
-            </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Logistics</p>
-            </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918667734656">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-
-  </div-->
-
-
-  <!--div class="mySlides2 w3-row">
+            <!--div class="mySlides2 w3-row">
     <div class="w3-col l6 m12 s12">
       <img class="w3-animate-opacity w3-image" src="images/Rahul-Marketing.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
     </div>
@@ -1280,7 +1415,7 @@ a:active .line.-bottom {
                 <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919400855259" style="text-decoration:none;color:#FFF">Dev Krishan</a></p>
             </div>
             <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Design</p>
+                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - USG Design</p>
             </div>
             <div class="w3-container">
           <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+91">Call Now</a>
@@ -1290,214 +1425,249 @@ a:active .line.-bottom {
     </div>
 
   </div-->
- <!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Adity-Delegate Affairs.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917539991600" style="text-decoration:none;color:#FFF">Saumya Yadav</a></p>
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/design.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917904241651" style="text-decoration:none;color:#FFF">Dev Krishnan Raj Purohit</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">USG Design</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px; font-size:18px;text-decoration:none" href="tel:+917904241651">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Design</p>
+
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/marketing.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919400855259" style="text-decoration:none;color:#FFF">Rahul Radhakrishnan</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">USG Marketing</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px; font-size:18px;text-decoration:none" href="tel:+919400855259">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+917550170228">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
 
-  </div-->
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/spon.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918754321989" style="text-decoration:none;color:#FFF">Yohannes Peter</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">USG Sponsorships</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px; font-size:18px;text-decoration:none" href="tel:+918754321989">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
 
- <!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Siddharth-Delegate Affairs.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918939966294" style="text-decoration:none;color:#FFF">Yohannes Peter</a></p>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary Marketing & Sponsorships</p>
+
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/Delaff1.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919400629195" style="text-decoration:none;color:#FFF">Aditi Shah</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - USG Delegate Affairs</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+919400629195">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
+
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px; font-size:18px;text-decoration:none" href="tel:+918754321989">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
 
-  </div-->
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/Delaff2.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917397243406" style="text-decoration:none;color:#FFF">Justine Jacob</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - USG Delegate Affairs</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px; font-size:18px;text-decoration:none" href="tel:+917397243406">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
 
- <!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Sangeet-Hospitality.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919790712768" style="text-decoration:none;color:#FFF">Aditi Shah</a></p>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Delegate Affairs</p>
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/hosp.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+918281606438" style="text-decoration:none;color:#FFF">Sandeep</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">USG Hospitality</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918281606438">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
             </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+919400629195">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
 
-  </div-->
+            <div class="mySlides2 w3-row">
+                <div class="w3-col l6 m12 s12" align="Center">
+                    <img class="w3-animate-opacity w3-image" src="images/pr.png" style="height:80% ;width:80%; border-radius: 300px 300px 300px 300px">
+                </div>
+                <div class="w3-col l6 m12 s12">
+                    <div class="w3-hide-small" style="margin-top:140px">
+                    </div>
+                    <div class="w3-card w3-center" style="width:100%;">
+                        <header class="w3-container">
+                            <div style="max-height:80px !important; height:76px !important">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919677036525" style="text-decoration:none;color:#FFF">Suhas R Vaidya</a></p>
+                            </div>
+                            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
+                                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Head of PR</p>
+                            </div>
+                            <div class="w3-container">
+                                <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+919677036525">Call Now</a>
+                            </div>
+                        </header>
+                    </div>
+                </div>
 
-   <!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/vishal-PR.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+917550170320" style="text-decoration:none;color:#FFF">Justine Jacob</a></p>
             </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Co - Under Secretary General Delegate Affairs</p>
-            </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px; font-size:18px;text-decoration:none" href="tel:+917397243406">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-  </div-->
-<!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/numan-PR.jpeg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919845712971" style="text-decoration:none;color:#FFF">Sandeep B.</a></p>
-            </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Under Secretary General Hospitality</p>
-            </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+918281606438">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-  </div-->
-
-    <!--div class="mySlides2 w3-row">
-    <div class="w3-col l6 m12 s12">
-      <img class="w3-animate-opacity w3-image" src="images/Ojus-PR.jpg" style="height:100% ;width:100%; border-radius: 300px 300px 300px 300px">
-    </div>
-    <div class="w3-col l6 m12 s12">
-      <div class="w3-hide-small" style="margin-top:140px">
-      </div>
-      <div class="w3-card w3-center" style="width:100%;">
-        <header class="w3-container">
-          <div style="max-height:80px !important; height:76px !important">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:36px"><a href="tel:+919790722782" style="text-decoration:none;color:#FFF">Suhas R. Vaidya</a></p>
-            </div>
-            <div style="max-height:80px !important; height:62px !important; margin-top:35px">
-                <p class="w3-animate-zoom" style=" line-height:150%; font-size:28px">Head of PR</p>
-            </div>
-            <div class="w3-container">
-          <a class="w3-btn w3-round-xlarge w3-border w3-hover-white w3-animate-zoom" style="margin-top:20px;font-size:18px; text-decoration:none" href="tel:+919677036525">Call Now</a>
-      </div>
-        </header>
-      </div>
-    </div>
-
-  </div-->
 
 
- <!--button class="w3-btn w3-transparent w3-display-left w3-xxlarge w3-xlarge" onclick="plusDivs2(-1)">&#10094;</button>
-  <button class="w3-btn w3-transparent w3-display-right w3-xlarge w3-xxlarge" onclick="plusDivs2(1)">&#10095;</button>
-</div-->
-  <script>
-var slideIndex2 = 1;
-showDivs2(slideIndex2);
+            <button class="w3-btn w3-transparent w3-display-left w3-large w3-xlarge" onclick="plusDivs2(-1)">&#10094;</button>
+            <button class="w3-btn w3-transparent w3-display-right w3-xlarge w3-large" onclick="plusDivs2(1)">&#10095;</button>
+        </div>
+        <script>
+            var slideIndex2 = 1;
+            showDivs2(slideIndex2);
 
-function plusDivs2(n2) {
-  showDivs2(slideIndex2 += n2);
-}
+            function plusDivs2(n2) {
+                showDivs2(slideIndex2 += n2);
+            }
 
-function showDivs2(n2) {
-  var i2;
-  var x2 = document.getElementsByClassName("mySlides2");
-  if (n2 > x2.length) {slideIndex2 = 1}
-  if (n2 < 1) {slideIndex2 = x2.length}
-  for (i2 = 0; i2 < x2.length; i2++) {
-     x2[i2].style.display = "none";
-  }
-  x2[slideIndex2-1].style.display = "block";
-}
-</script>
+            function showDivs2(n2) {
+                var i2;
+                var x2 = document.getElementsByClassName("mySlides2");
+                if (n2 > x2.length) {
+                    slideIndex2 = 1
+                }
+                if (n2 < 1) {
+                    slideIndex2 = x2.length
+                }
+                for (i2 = 0; i2 < x2.length; i2++) {
+                    x2[i2].style.display = "none";
+                }
+                x2[slideIndex2 - 1].style.display = "block";
+            }
+        </script>
 
 
-  <!-- Contact Section -->
+        <!-- Contact Section -->
 
-  <div class="w3-padding-64 w3-content w3-text-grey" id="cont" style="font-size:22px">
-    <div class="w3-row">
-      <div class="w3-col l6 m6 s12 w3-section w3-left">
-          <h2 class="w3-text-light-grey w3-xlarge">Contact Us</h2>
-    <table>
-      <tr>
-        <td>
-            <i class="fa fa-map-marker fa-fw w3-text-white w3-xlarge w3-margin-right w3-hover-opacity"></i>
-        </td>
-        <td style="text-align:left"><p><a href="https://www.google.co.in/maps/place/Kanchipuram/@12.8430573,80.1538269,17z/data=!3m1!4b1!4m5!3m4!1s0x3a5259a58da799fb:0x3bc484d22ce3b472!8m2!3d12.8430573!4d80.155418?hl=en" style="text-decoration:none;color:#FFF">Chennai, Tamil Nadu</a></p></td>
+        <div class="w3-padding-64 w3-content w3-text-grey" id="cont" style="font-size:22px">
+            <div class="w3-row">
+                <div class="w3-col l6 m6 s12 w3-section w3-left">
+                    <h2 class="w3-text-light-grey w3-xlarge">Contact Us</h2>
+                    <table>
+                        <tr>
+                            <td>
+                                <i class="fa fa-map-marker fa-fw w3-text-white w3-xlarge w3-margin-right w3-hover-opacity"></i>
+                            </td>
+                            <td style="text-align:left">
+                                <p><a href="https://www.google.co.in/maps/place/Kanchipuram/@12.8430573,80.1538269,17z/data=!3m1!4b1!4m5!3m4!1s0x3a5259a58da799fb:0x3bc484d22ce3b472!8m2!3d12.8430573!4d80.155418?hl=en" style="text-decoration:none;color:#FFF">Chennai,
+                                        Tamil Nadu</a></p>
+                            </td>
 
-        </tr>
-        <tr>
-          <td>
-        <i class="fa fa-phone fa-fw w3-text-white w3-xlarge w3-margin-right"></i>
-        </td>
-        <td style="text-align:left"><p><a href="tel:+918667308626" style="text-decoration:none;color:#FFF">Phone: +91-866-730-8626</a></p>
-        </td>
-        </tr>
-        <tr>
-          <td>
-        <i class="fa fa-envelope fa-fw w3-text-white w3-xlarge w3-margin-right"></i></td>
-        <td style="text-align:left"><p><a href="mailto:contact@vitcmun.in" style="text-decoration:none;color:#FFF">Email: contact@vitcmun.in</a></p></td>
-      </tr>
-      <tr>
-        <td>
-        <i class="fa fa-facebook-official fa-fw w3-text-white w3-margin-top w3-xlarge w3-margin-right"></i></td>
-          <td style="text-align:left"><p><a href="https://www.facebook.com/groups/vitcmun/" target="_blank" style="text-decoration:none;color:#FFF">Facebook</a></p>
-      </td>
-      </tr>
-      <tr>
-        <td>
-        <i class="fa fa-instagram fa-fw w3-text-white w3-xlarge w3-margin-right"></i></td>
-          <td style="text-align:left">
-          <p><a href="http://www.instagram.com/vitcmun19" target="_blank" style="text-decoration:none;color:#FFF">Instagram</a></p>
-      </td>
-      </tr>
-      <!--tr>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-phone fa-fw w3-text-white w3-xlarge w3-margin-right"></i>
+                            </td>
+                            <td style="text-align:left">
+                                <p><a href="tel:+918667308626" style="text-decoration:none;color:#FFF">Phone: +91-866-730-8626</a></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-envelope fa-fw w3-text-white w3-xlarge w3-margin-right"></i></td>
+                            <td style="text-align:left">
+                                <p><a href="mailto:contact@vitcmun.in" style="text-decoration:none;color:#FFF">Email: contact@vitcmun.in</a></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-facebook-official fa-fw w3-text-white w3-margin-top w3-xlarge w3-margin-right"></i></td>
+                            <td style="text-align:left">
+                                <p><a href="https://www.facebook.com/groups/vitcmun/" target="_blank" style="text-decoration:none;color:#FFF">Facebook</a></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <i class="fa fa-instagram fa-fw w3-text-white w3-xlarge w3-margin-right"></i></td>
+                            <td style="text-align:left">
+                                <p><a href="http://www.instagram.com/vitcmun19" target="_blank" style="text-decoration:none;color:#FFF">Instagram</a></p>
+                            </td>
+                        </tr>
+                        <!--tr>
         <td>
         <i class="fa fa-snapchat fa-fw w3-text-white w3-xlarge w3-margin-right"></i></td>
           <td style="text-align:left"><p><a href="https://www.snapchat.com/add/vitcmun19" target="_blank" style="text-decoration:none;color:#FFF">
@@ -1512,52 +1682,56 @@ function showDivs2(n2) {
         <p><a style="text-decoration:none;color:#FFF" href="https://www.twitter.com/vitcmun19" target="_blank"> Twitter</a></p>
       </td>
     </tr-->
-      </table>
-        <br>
+                    </table>
+                    <br>
 
-      </div>
-      <div class="w3-col l6 m6 s12">
-        <!-- Footer -->
-<!--map section-->
-<div id="map" style="width:100%px;height:600px;background:black"></div>
+                </div>
+                <div class="w3-col l6 m6 s12">
+                    <!-- Footer -->
+                    <!--map section-->
+                    <div id="map" style="width:100%px;height:600px;background:black"></div>
 
 
-<script>
-      function myMap() {
-        var uluru = {lat: 12.843059, lng: 80.154649};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
+                    <script>
+                        function myMap() {
+                            var uluru = {
+                                lat: 12.843059,
+                                lng: 80.154649
+                            };
+                            var map = new google.maps.Map(document.getElementById('map'), {
+                                zoom: 12,
+                                center: uluru
+                            });
+                            var marker = new google.maps.Marker({
+                                position: uluru,
+                                map: map
+                            });
+                        }
+                    </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfhg5WW1quFPi6nIxFsu7h_sGoX2BkP4A&callback=myMap"></script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCfhg5WW1quFPi6nIxFsu7h_sGoX2BkP4A&callback=myMap"></script>
 
-      </div>
+                </div>
+            </div>
+            <!-- End Contact Section -->
+        </div>
+
+
+
+        <!-- END PAGE CONTENT -->
     </div>
-  <!-- End Contact Section -->
-  </div>
-
-
-
-<!-- END PAGE CONTENT -->
-</div>
 
 </body>
 <script>
- if ('serviceWorker' in navigator) {
-    console.log("Will the service worker register?");
-    navigator.serviceWorker.register('service-worker.js')
-      .then(function(reg){
-        console.log("Yes, it did.");
-     }).catch(function(err) {
-        console.log("No it didn't. This happened:", err)
-    });
- }
+    if ('serviceWorker' in navigator) {
+        console.log("Will the service worker register?");
+        navigator.serviceWorker.register('service-worker.js')
+            .then(function(reg) {
+                console.log("Yes, it did.");
+            }).catch(function(err) {
+                console.log("No it didn't. This happened:", err)
+            });
+    }
 </script>
+
 </html>
